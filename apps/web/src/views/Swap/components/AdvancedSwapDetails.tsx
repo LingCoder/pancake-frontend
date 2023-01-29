@@ -136,6 +136,7 @@ export interface AdvancedSwapDetailsProps {
   inputAmount?: CurrencyAmount<Currency>
   outputAmount?: CurrencyAmount<Currency>
   tradeType?: TradeType
+  isMM?: boolean
 }
 
 export function AdvancedSwapDetails({
@@ -148,6 +149,7 @@ export function AdvancedSwapDetails({
   outputAmount,
   tradeType,
   hasStablePair,
+  isMM = false,
 }: AdvancedSwapDetailsProps) {
   const { t } = useTranslation()
   const [isModalOpen, setIsModalOpen] = useState(() => false)
@@ -195,6 +197,7 @@ export function AdvancedSwapDetails({
                     onDismiss={() => setIsModalOpen(false)}
                   >
                     <RouterViewer
+                      isMM={isMM}
                       inputCurrency={inputAmount.currency}
                       pairs={pairs}
                       path={path}
