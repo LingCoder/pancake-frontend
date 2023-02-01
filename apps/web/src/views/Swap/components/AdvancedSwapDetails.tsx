@@ -73,10 +73,18 @@ function TradeSummary({
             <QuestionHelper
               text={
                 <>
-                  <Text>{`${t('AMM')}:${t(
-                    'The difference between the market price and estimated price due to trade size.',
-                  )}`}</Text>
-                  <Text mt="10px">{`${t('MM')}:${t('No slippage against quote from market maker')}`}</Text>
+                  <Text>
+                    <Text bold display="inline-block">
+                      {t('AMM')}
+                    </Text>
+                    {`: ${t('The difference between the market price and estimated price due to trade size.')}`}
+                  </Text>
+                  <Text mt="10px">
+                    <Text bold display="inline-block">
+                      {t('MM')}
+                    </Text>
+                    {`: ${t('No slippage against quote from market maker')}`}
+                  </Text>
                 </>
               }
               ml="4px"
@@ -98,7 +106,10 @@ function TradeSummary({
               text={
                 <>
                   <Text mb="12px">
-                    {t('AMM')}:
+                    <Text bold display="inline-block">
+                      {t('AMM')}
+                    </Text>
+                    :{' '}
                     {hasStablePair
                       ? t('For each non-stableswap trade, a %amount% fee is paid', { amount: totalFeePercent })
                       : t('For each trade a %amount% fee is paid', { amount: totalFeePercent })}
@@ -122,7 +133,10 @@ function TradeSummary({
                     </>
                   )}
                   <Text mt="10px">
-                    {t('MM')}:
+                    <Text bold display="inline-block">
+                      {t('MM')}
+                    </Text>
+                    :{' '}
                     {t(
                       'PancakeSwap does not charge any fees for trades. However, the market makers charge an implied fee of 0.05% (non-stablecoin) / 0.01% (stablecoin) factored into the quotes provided by them.',
                     )}
